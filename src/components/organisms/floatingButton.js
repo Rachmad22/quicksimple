@@ -1,45 +1,36 @@
-import { useState } from "react"
 
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import ElectricBoltOutlinedIcon from '@mui/icons-material/ElectricBoltOutlined';
+import InboxButton from './inboxButton';
+import TaskButton from './taskButton';
 
+export default function FloatingButton() {
+  const actions = [
+    { icon: <InboxButton />, name: 'inbox' },
+    { icon: <TaskButton />, name: 'task' },
+  ];
 
-const FloatingButton = () => {
-  const [show, setShow] = useState(false)
-  const [scheduleClicked, setScheduleClicked] = useState(false)
-  const [messageClicked, setMessageClicked] = useState(false)
   return (
-    <>
-      <div className="floating-container">
-        <div className="floating-button" onClick={() => setShow(true)}>
-          <img src="./images/logo1.svg" alt="lighting" />
-        </div>
-        {show && (
-          <div className="element-container">
-
-            <span className="float-element" onClick={()=>{
-              setScheduleClicked(true)
-            }}>
-                {scheduleClicked ? (
-                  <img src="./images/logo3clicked.svg" alt="schedule" />
-                  ):(
-                  <img src="./images/logo3.svg" alt="schedule" />
-                )}
-            </span>
-
-            <span className="float-element" onClick={()=> {
-              setMessageClicked(true)
-            }}>
-              {messageClicked ? (
-                <img src="./images/logo2clicked.svg" alt="message"/>
-                ):(
-                  <img src="./images/logo2.svg" alt="message" />
-              )}
-            </span>
-            
-          </div>
-        )}
-      </div>
-    </>
-  )
+    <Box sx={{ height: 550, transform: 'translateX(50px)', flexGrow: 1 }}>
+      <SpeedDial
+        ariaLabel="SpeedDial basic example"
+        sx={{ position: 'absolute', bottom: 0, right: 75 }}
+        icon={<ElectricBoltOutlinedIcon />}
+        direction='left'
+        transitionDuration={600}
+      >
+        {actions.map((action) => (
+          <SpeedDialAction
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+            tooltipPlacement='top'
+          />
+        ))}
+      </SpeedDial>
+    </Box>
+  );
 }
-
-export default FloatingButton

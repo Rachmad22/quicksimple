@@ -1,37 +1,71 @@
-body{
+body {
     background: rgba(51, 51, 51, 1);
     height: 100vh;
     width: 100vw;
 }
-.back{
+
+.back {
     background: rgba(51, 51, 51, 1);
-    border-right: 1px solid #ccc;
+
+}
+
+.back2 {
+    background: rgba(51, 51, 51, 1);
+    border-left: 1px solid #ccc;
     height: 100vh;
 }
 
-.back2{
-    background: rgba(51, 51, 51, 1);
-}
 
-.floating-container{
+.floating-container {
     position: fixed;
-    width: 250px;
-    height: 105px;
+    width: 275px;
+    height: 115px;
     bottom: 0;
     right: 0;
 }
 
 
-.floating-button{
+.floating-button {
     position: absolute;
-    width: 37px;
-    height: 37px;
+    width: 47px;
+    height: 47px;
     bottom: 45px;
     right: 63px;
     border-radius: 50%;
     cursor: pointer;
 }
 
-.element-container{
-    margin-left: 15px;
+.inbox-popover {
+    width: 734px;
+    height: 737px;
+    top: 233px;
+    left: 1152px
+}
+
+.search {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.search-wrapper {
+    border-style: solid;
+    border-color: #828282;
+    width: 100%;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    overflow-y: hidden;
+    margin-top: 10px;
+}
+
+.search-text {
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    color: black;
+    font-size: 1rem;
+    margin-left: 5px;
+    font-family: 'Lato', sans-serif;
 }

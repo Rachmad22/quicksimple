@@ -1,6 +1,7 @@
 import "../styles/index.css"
 import * as React from 'react';
 import FloatingButton from '../components/organisms/floatingButton'
+import SearchBar from "../components/organisms/SearchBar";
 
 
 const Home = () => {
@@ -8,17 +9,15 @@ const Home = () => {
   return (
     <>
       <div>
-        <div className="container">
           <div className="row">
-            <div className="col-3 back">
-              Column
+            <div className="col-2 back">
             </div>
-            <div className="col-9">
-            <input className="form-control" type="text" placeholder="Search" aria-label="default input example"/>
-              Column
+            <div className="col-10 back2">
+              <div className="search">
+              <SearchBar />
+              </div>
               <FloatingButton />
             </div>
-          </div>
         </div>
       </div>
     </>
