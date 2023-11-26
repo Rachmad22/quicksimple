@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -17,24 +16,24 @@ export default function TaskButton() {
   const [scroll, setScroll] = React.useState('paper');
   const [taskFilter, setTaskFilter] = React.useState('');
   const [selectedDate, setSelectedDate] = React.useState(null);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const openDelete = Boolean(anchorEl);
+  const [checked, setChecked] = React.useState(false)
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleCloseDelete = () => {
-    setAnchorEl(null);
-  };
+  // Checkbox
+  const handleCheckbox = () => {
+    setChecked(true)
+  }
 
+  // Filter
   const handleChange = (event) => {
     setTaskFilter(event.target.value);
   };
 
+  // Date
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
 
+  // Dialog
   const handleClickOpen = (scrollType) => () => {
     setOpen(true);
     setScroll(scrollType);
@@ -57,6 +56,7 @@ export default function TaskButton() {
 
   return (
     <React.Fragment>
+      {/* Floating Button as a Toggle Dialog */}
       <ChromeReaderModeOutlined color='warning' onClick={handleClickOpen('paper')} />
       <Dialog
         open={open}
@@ -64,12 +64,13 @@ export default function TaskButton() {
         scroll={scroll}
         aria-labelledby="scroll-dialog-title"
         aria-describedby="scroll-dialog-description"
-        sx={{ width: "577px", height: "550px", marginLeft: "555px" }}
+        sx={{ width: "575px", height: "550px", marginLeft: "555px" }}
       >
+        {/* Header of Dialog */}
         <DialogTitle id="scroll-dialog-title">
           <div className='row'>
             <div className='col-9'>
-              <FormControl sx={{ marginLeft: '45px', minWidth: 120 }} size="small">
+              <FormControl sx={{ marginLeft: '45px', minWidth: 120 }} size='small' >
                 <InputLabel id="demo-select-small-label">My Task</InputLabel>
                 <Select
                   labelId="demo-select-small-label"
@@ -81,8 +82,8 @@ export default function TaskButton() {
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={10}>Personal Errands</MenuItem>
-                  <MenuItem value={20}>Urgent To Do</MenuItem>
+                  <MenuItem value={1}>Personal Errands</MenuItem>
+                  <MenuItem value={2}>Urgent To Do</MenuItem>
                 </Select>
               </FormControl>
             </div>
@@ -94,12 +95,14 @@ export default function TaskButton() {
           </div>
         </DialogTitle>
 
+        {/* Dialog Body */}
         <DialogContent dividers={scroll === 'paper'}>
           <DialogContentText
             id="scroll-dialog-description"
             ref={descriptionElementRef}
             tabIndex={-1}
           >
+            {/* Data dummy */}
             {[...new Array(50)]
               .map(
                 () => (
@@ -109,52 +112,33 @@ export default function TaskButton() {
                         <div class="card border-end-0 border-start-0">
                           <div class="row">
                             <div className='col-1'>
-                              <Checkbox size='15px' />
+                              <Checkbox size='15px' color='default' onClick={handleCheckbox} />
                             </div>
                             <div className='col-5'>
-                              <h8 style={{ fontSize: '13px' }} className='fw-bolder'>
+                              <h8 style={{ fontSize: '13px' }} className={checked ? 'fw-bolder text-decoration-line-through': 'fw-bolder'}>
                                 Close off Case #012920- RODRIGUES, Amiguel
                               </h8>
                             </div>
-                            <div className='col-2'>
-                              <span style={{ color: 'red', fontSize: '9px' }}>2 days left</span>
-                            </div>
-                            <div className='col-4'>
+                            <div className='col-6' style={{ height: '67px' }}>
+                              <span style={{ color: 'red', fontSize: '9px', marginRight: '15px' }}>2 days left</span>
                               <span style={{ fontSize: '11px' }}>12/06/2021</span>
                               <KeyboardArrowUpOutlinedIcon fontSize='small' sx={{ cursor: 'pointer' }} />
-                              <div>
-                                <MoreVertIcon
-                                fontSize='small' 
+
+                              <MoreVertIcon
+                                fontSize='small'
                                 style={{
                                   transform: 'rotate(90deg)',
                                   marginLeft: '9px',
                                   cursor: 'pointer'
                                 }}
-                                  aria-controls={openDelete ? 'basic-menu' : undefined}
-                                  aria-haspopup="true"
-                                  aria-expanded={openDelete ? 'true' : undefined}
-                                  onClick={handleClick}
-                                  id="basic-button"
-                                />
-                                {/* <Button
-                                >
-                                  Dashboard
-                                </Button> */}
-                                <Menu
-                                  id="basic-menu"
-                                  anchorEl={anchorEl}
-                                  open={openDelete}
-                                  onClose={handleCloseDelete}
-                                  MenuListProps={{
-                                    'aria-labelledby': 'basic-button',
-                                  }}
-                                  sx={{backgroundColor: 'transparent'}}
-                                >
-                                  <MenuItem onClick={handleCloseDelete}>Delete</MenuItem>
-                                </Menu>
-                              </div>
+                                type="button"
+                                className='dropdown-toggle'
+                                data-bs-toggle="dropdown" aria-expanded="false"
+                              />
+                              <ul className="dropdown-menu p-1" style={{ width: '3px' }}>
+                                <li><a className="dropdown-item align-content-center text-danger" href="#">Delete</a></li>
+                              </ul>
                             </div>
-
 
                             <div className='row align-items-center'>
                               <div className='col-1'>
@@ -183,10 +167,6 @@ export default function TaskButton() {
               )}
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
-        </DialogActions>
       </Dialog>
     </React.Fragment>
   );

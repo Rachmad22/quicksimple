@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+*{
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+}
 body {
     background: rgba(51, 51, 51, 1);
     height: 100vh;

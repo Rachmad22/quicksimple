@@ -96,10 +96,6 @@ export default function InboxButton() {
               </List>
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
-        </DialogActions>
       </Dialog>
       </Box>
     </React.Fragment>
