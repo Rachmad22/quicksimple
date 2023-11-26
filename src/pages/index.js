@@ -1,7 +1,7 @@
 import "../styles/index.css"
 import * as React from 'react';
 import FloatingButton from '../components/organisms/floatingButton'
-import SearchBar from "../components/organisms/SearchBar";
+import SearchBar from "../components/molecules/SearchBar";
 
 
 const Home = () => {
