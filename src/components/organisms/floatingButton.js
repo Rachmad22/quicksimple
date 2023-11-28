@@ -5,7 +5,7 @@ import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import ElectricBoltOutlinedIcon from '@mui/icons-material/ElectricBoltOutlined';
 import InboxButton from './inboxButton';
-import TaskButton from './taskButton';
+import TaskButton from '../molecules/taskButton';
 
 export default function FloatingButton() {
   const actions = [
