@@ -259,7 +259,7 @@ export default function TaskButton() {
                           data-bs-toggle="dropdown" aria-expanded="false"
                         />
                         <ul className="dropdown-menu p-1" style={{ width: '3px' }}>
-                          <li><a className="dropdown-item align-content-center text-danger" onClick={() => deleteTask(task.id)}>Delete</a></li>
+                          <li><button className="dropdown-item align-content-center text-danger" onClick={() => deleteTask(task.id)}>Delete</button></li>
                         </ul>
                       </div>
 
