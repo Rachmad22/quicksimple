@@ -6,7 +6,7 @@ import SearchBar from "../components/molecules/SearchBar";
 const Home = () => {
 
   const getUser = () => {
-    fetch(`${process.env.REACT_APP_URL_BACKEND}/user/1`, {
+    fetch(`${process.env.REACT_APP_URL_BACKEND}/user`, {
       method: 'GET',
       headers: {
         'app-id': process.env.REACT_APP_TOKEN,
