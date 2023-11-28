@@ -173,13 +173,10 @@ export default function TaskButton() {
                             className='dropdown-toggle'
                             data-bs-toggle="dropdown" aria-expanded="false"
                           />
-                          {cardOpen ? (
-                            <></>
-                          ) : (
                             <ul className="dropdown-menu p-1" style={{ width: '3px' }} onClick={() => deleteTask(tasks.id)}>
-                              <li><a className="dropdown-item align-content-center text-danger">Delete</a></li>
+                              <li><button className="dropdown-item align-content-center text-danger" disabled={cardOpen ? true : false}>Delete</button></li>
                             </ul>
-                          )}
+
                         </div>
 
                         <div className='row align-items-center'>
