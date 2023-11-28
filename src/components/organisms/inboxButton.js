@@ -22,9 +22,10 @@ function refreshMessages() {
   );
 }
 
-export default function InboxButton(getUser) {
+export default function InboxButton() {
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState('paper');
+  // eslint-disable-next-line 
   const [value, setValue] = React.useState(0);
   const [chatClicked, setChatCkicked] = React.useState(false)
   const ref = React.useRef(null);

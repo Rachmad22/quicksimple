@@ -5,21 +5,21 @@ import SearchBar from "../components/molecules/SearchBar";
 
 const Home = () => {
 
-  const getUser = () => {
-    fetch(`${process.env.REACT_APP_URL_BACKEND}/user`, {
-      method: 'GET',
-      headers: {
-        'app-id': process.env.REACT_APP_TOKEN,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  }
+  // const getUser = () => {
+  //   fetch(`${process.env.REACT_APP_URL_BACKEND}/user`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'app-id': process.env.REACT_APP_TOKEN,
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error:', error);
+  //     });
+  // }
 return (
   <>
     <div>
@@ -30,7 +30,7 @@ return (
           <div className="search">
             <SearchBar />
           </div>
-          <FloatingButton getUser={getUser} />
+          <FloatingButton />
         </div>
       </div>
     </div>

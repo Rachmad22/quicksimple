@@ -5,7 +5,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { ChromeReaderModeOutlined } from '@mui/icons-material';
-import { Checkbox, FormControl, InputLabel, Menu, MenuItem, Select } from '@mui/material';
+import { Checkbox, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ScheduleIcon from '@mui/icons-material/Schedule';
@@ -15,7 +15,6 @@ export default function TaskButton() {
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState('paper');
   const [taskFilter, setTaskFilter] = React.useState('');
-  const [selectedDate, setSelectedDate] = React.useState(null);
   // Todo Controller
   const [tasks, setTasks] = useState([])
   const [newTitle, setNewTitle] = useState('');
